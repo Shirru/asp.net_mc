@@ -1,0 +1,6 @@
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\task1_2\task1_2\bin\Debug\task1_2.exe.config
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\task1_2\task1_2\bin\Debug\task1_2.exe
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\task1_2\task1_2\bin\Debug\task1_2.pdb
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\task1_2\task1_2\obj\Debug\task1_2.csprojResolveAssemblyReference.cache
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\task1_2\task1_2\obj\Debug\task1_2.exe
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\task1_2\task1_2\obj\Debug\task1_2.pdb

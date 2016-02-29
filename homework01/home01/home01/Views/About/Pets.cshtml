@@ -1,0 +1,21 @@
+﻿@model IEnumerable<home01.Models.Pet>
+
+<div>
+    <table>
+        <tr>
+            @foreach (var pet in Model)
+            {
+
+                <td style="height: 300px; width: 100px; padding-left: 20px;">
+                    <img id="photo" src=@pet.img_path style="height: 100%;"/>
+                    <p>
+                        @pet.name
+                        <br />
+                        @pet.info
+                    </p>
+                </td>
+            }
+
+        </tr>
+    </table>
+</div>

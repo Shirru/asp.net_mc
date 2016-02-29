@@ -1,0 +1,17 @@
+﻿body {
+}
+
+#menu {
+    float: left; 
+    width: 200px;
+    height: auto;  
+}
+
+#main {
+    width: auto;
+    height: auto;  
+}
+
+#photo {
+    height: 100%;
+}

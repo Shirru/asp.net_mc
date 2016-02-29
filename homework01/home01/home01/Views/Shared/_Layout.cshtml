@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../../Styles.css">
+    <title>_Layout</title>
+</head>
+<body>
+     <div id="menu">
+            <ul>
+                <li>@Html.ActionLink("Home","Index", "Home")</li>
+                <li>@Html.ActionLink("My pets", "Pets", "About")</li>
+                <li>@Html.ActionLink("About", "About", "About")</li>
+            </ul>
+    </div>
+    <div id="main">
+        @RenderBody()
+    </div>
+</body>
+</html>
