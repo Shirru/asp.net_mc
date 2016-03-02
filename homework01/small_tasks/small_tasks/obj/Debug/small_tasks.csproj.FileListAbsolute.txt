@@ -1,0 +1,6 @@
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\small_tasks\small_tasks\bin\Debug\small_tasks.exe.config
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\small_tasks\small_tasks\bin\Debug\small_tasks.exe
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\small_tasks\small_tasks\bin\Debug\small_tasks.pdb
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\small_tasks\small_tasks\obj\Debug\small_tasks.csprojResolveAssemblyReference.cache
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\small_tasks\small_tasks\obj\Debug\small_tasks.exe
+C:\Users\Анюта\Documents\Visual Studio 2015\Projects\asp.net_mc\homework01\small_tasks\small_tasks\obj\Debug\small_tasks.pdb
