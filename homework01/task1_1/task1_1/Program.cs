@@ -15,10 +15,12 @@ namespace task1_1
             int max = 0;
             int res = -100;
 
+            Console.WriteLine("Введите количество камней: ");
             int size = int.Parse(Console.ReadLine());
 
             int[] array = new int[size];
 
+            Console.WriteLine("Введите веса камней через пробел: ");
             var str = Console.ReadLine().Split(' ');
 
             for(int i = 0; i < size; i++)
@@ -40,9 +42,9 @@ namespace task1_1
                 }             
             }
 
-            res = sum - max - max;
+            res = Math.Abs(sum - max - max);
 
-            Console.WriteLine(res);
+            Console.WriteLine("\nОтвет: " + res);
 
             Console.ReadLine();
         }
