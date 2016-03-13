@@ -1,0 +1,22 @@
+﻿@model Library.Models.EditModel
+<div>
+    <h2>Редактировать данные профиля</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.ValidationSummary(true, "")
+            <div>
+                <p>Имя: @Html.EditorFor(model => model.Name)</p>
+            </div>
+
+            <div>
+                <div>
+                    <input type="submit" value="Сохранить" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

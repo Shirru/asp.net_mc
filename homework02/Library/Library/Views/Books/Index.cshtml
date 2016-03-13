@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable <Library.Models.Book>
+
+
+<title>Книги</title>
+<div>
+    <table style="margin: auto;">
+        @{
+            int rowCount = Model.Count()%4 != 0 ? Model.Count()/4 + 1 : Model.Count()/4;
+            int tdCount = 0;
+            for (int i = 0; i < rowCount; i++)
+            {
+                <tr>
+                    @for (int j = 0; j < 4 && tdCount < Model.Count(); j++, tdCount++)
+                    {
+                        <td style="height: 300px; vertical-align: top; width: 50px; padding: 50px">
+                            <img style="height: inherit;" src=@Model.ElementAt(tdCount).ImagePath alt=@Model.ElementAt(i*rowCount).Title> <br />
+                            @Html.DisplayFor(Item => Model.ElementAt(tdCount).Title)<br />
+                            @Html.DisplayFor(Item => Model.ElementAt(tdCount).Author)<br />
+                            @Html.ActionLink("Подробнее", "Details", new{ Id = Model.ElementAt(tdCount).Id})<br />
+                            @{
+                                if (!Model.ElementAt(tdCount).Holder.IsEmpty())
+                                {
+                                    <p style="margin: 0;">Нет в наличии</p>
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Взять книгу", "Edit", new { Id = Model.ElementAt(tdCount).Id})
+                                }
+                            }
+                            <br />
+                        </td>
+                    }
+                </tr>
+            }
+        }
+    </table>
+</div>
+

@@ -1,0 +1,43 @@
+﻿@using System.Web.UI.WebControls
+@using Library.Models
+@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+@{string currentUserId = User.Identity.GetUserId();}
+<div style="height: 20px;">
+    <table align="right">
+        <tr>
+            @{
+                if (currentUserId.IsEmpty())
+                {
+                    <td>@Html.ActionLink("Войти на сайт", "Login", "Account")</td>
+                    <td>@Html.ActionLink("Регистрация", "Register", "Account")</td>
+                }
+                else
+                {
+                    <td>@Html.ActionLink("Личный кабинет", "Personal", "Account")</td>
+                    <td>@Html.ActionLink("Выход", "Logout", "Account")</td>
+                }
+            }
+        </tr>
+    </table>
+</div>
+<div>
+    <table style="margin: auto; margin-top: 20px;">
+        <tr>
+            <td>@Html.ActionLink("Книги", "Index", "Books")</td>
+            <td>@Html.ActionLink("Статистика", "Statistics", "Books")</td>
+        </tr>
+    </table>
+    <hr/>
+</div>
+<div>
+    @RenderBody()
+</div>
+</body>
+</html>

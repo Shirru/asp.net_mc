@@ -1,0 +1,25 @@
+﻿@model Library.Models.LoginModel
+
+<title>Вход в систему</title>
+<div>
+    @using (Html.BeginForm())
+         {
+             @Html.AntiForgeryToken()
+
+             <div>
+                 @Html.ValidationSummary()
+                 <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl"/>
+                 <p>
+                     <label>Логин</label><br/>
+                     @Html.EditorFor(x => x.Email)
+                 </p>
+                 <p>
+                     <label>Пароль</label><br/>
+                     @Html.EditorFor(x => x.Password)
+                 </p>
+                 <p><button type="submit">Войти</button>
+                 </p>
+             </div>
+         }
+</div>
+

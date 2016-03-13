@@ -1,0 +1,18 @@
+﻿@model Library.Models.Book
+
+<title>@Model.Title</title>
+<div>
+    <img style="height: 300px;" src=@Model.ImagePath alt=@Model.Title> <br />
+    @Html.DisplayFor(Item => Model.Title)<br />
+    @Html.DisplayFor(Item => Model.Author)<br/>
+    Жанр: @Html.DisplayFor(Item => Model.Genre)<br/>
+    @if (Model.Holder.IsEmpty())
+    {
+        <p>В наличии</p>
+    }
+    else
+    {
+        <p>Нет в наличии</p>
+    }
+    <br />
+</div>
