@@ -13,8 +13,8 @@
                 <tr>
                     @for (int j = 0; j < 4 && tdCount < Model.Count(); j++, tdCount++)
                     {
-                        <td style="height: 300px; vertical-align: top; width: 50px; padding: 50px">
-                            <img style="height: inherit;" src=@Model.ElementAt(tdCount).ImagePath alt=@Model.ElementAt(i*rowCount).Title> <br />
+                        <td style="height: 300px; vertical-align: top; width: 200px; padding: 50px">
+                            <img style="height: inherit; width: inherit;" src=@Model.ElementAt(tdCount).ImagePath> <br />
                             @Html.DisplayFor(Item => Model.ElementAt(tdCount).Title)<br />
                             @Html.DisplayFor(Item => Model.ElementAt(tdCount).Author)<br />
                             @Html.ActionLink("Подробнее", "Details", new{ Id = Model.ElementAt(tdCount).Id})<br />
@@ -25,7 +25,11 @@
                                 }
                                 else
                                 {
-                                    @Html.ActionLink("Взять книгу", "Edit", new { Id = Model.ElementAt(tdCount).Id})
+                                    @Html.ActionLink("Взять книгу", "Edit", new { Id = Model.ElementAt(tdCount).Id})<br/>
+                                }
+                                if (!User.Identity.GetUserId().IsEmpty())
+                                {
+                                    @Html.ActionLink("Удалить книгу", "Delete", new { Id = Model.ElementAt(tdCount).Id })<br />
                                 }
                             }
                             <br />

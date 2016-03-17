@@ -1,4 +1,5 @@
-﻿@model Library.Models.Book
+﻿@using Microsoft.AspNet.Identity
+@model Library.Models.Book
 
 <title>@Model.Title</title>
 <div>
@@ -13,6 +14,12 @@
     else
     {
         <p>Нет в наличии</p>
+    }
+    @{
+        if (!User.Identity.GetUserId().IsEmpty())
+        {
+            @Html.ActionLink("Удалить книгу", "Delete", new { Id = Model.Id })<br />
+        }
     }
     <br />
 </div>

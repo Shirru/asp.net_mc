@@ -182,6 +182,10 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\jquery-2.2.1.js" />
+    <Content Include="scripts\jquery-2.2.1.min.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +212,10 @@
     <Compile Include="Migrations\201603130144085_MigrateDB3.Designer.cs">
       <DependentUpon>201603130144085_MigrateDB3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603172159215_MigrateDB31.cs" />
+    <Compile Include="Migrations\201603172159215_MigrateDB31.Designer.cs">
+      <DependentUpon>201603172159215_MigrateDB31.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\ApplicationUserManager.cs" />
@@ -215,6 +223,7 @@
     <Compile Include="Models\EditModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\Statistic.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -234,6 +243,8 @@
     <Content Include="Views\Account\Personal.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Books\Statistics.cshtml" />
+    <Content Include="Views\Books\AddBook.cshtml" />
+    <Content Include="scripts\jquery-2.2.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -256,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603130144085_MigrateDB3.resx">
       <DependentUpon>201603130144085_MigrateDB3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603172159215_MigrateDB31.resx">
+      <DependentUpon>201603172159215_MigrateDB31.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

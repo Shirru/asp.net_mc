@@ -1,8 +1,11 @@
-﻿@model IEnumerable<Int32>
+﻿@model List<IGrouping<string, Library.Models.Statistic>>
 <title>Статистика</title>
 <div>
-    <p>Количество книг фэнтези: @Model.ElementAt(0)</p>
-    <p>Количество книг учебник: @Model.ElementAt(1)</p>
-    <p>Количество книг философский роман: @Model.ElementAt(2)</p>
+    @{
+        foreach (var item in Model)
+        {
+            <p>Количество книг @item.Key: @item.ToList().ElementAt(0).Count</p>
+        }
+    }
 </div>
 

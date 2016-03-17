@@ -1,11 +1,12 @@
-﻿@using System.Web.UI.WebControls
+﻿@using System.Web.Script.Services
+@using System.Web.UI.WebControls
 @using Library.Models
 @using Microsoft.AspNet.Identity
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width"/>
 </head>
 <body>
 @{string currentUserId = User.Identity.GetUserId();}
@@ -32,6 +33,12 @@
         <tr>
             <td>@Html.ActionLink("Книги", "Index", "Books")</td>
             <td>@Html.ActionLink("Статистика", "Statistics", "Books")</td>
+            @{
+                if (!currentUserId.IsEmpty())
+                {
+                    <td>@Html.ActionLink("Загрузить книгу", "AddBook", "Books")</td>
+                }
+            }
         </tr>
     </table>
     <hr/>
@@ -39,5 +46,6 @@
 <div>
     @RenderBody()
 </div>
+    <script src="~/scripts/jquery-2.2.1.min.js"></script>
 </body>
 </html>

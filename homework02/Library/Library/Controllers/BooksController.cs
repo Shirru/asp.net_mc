@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Library.Models;
@@ -53,17 +54,51 @@ namespace Library.Controllers
 
         public ActionResult Statistics()
         {
-            //var result = db.Books.SqlQuery("Select Books.Genre, Count(Books.Genre) As GenreCount from Books group by (Books.Genre)");
-            //не знаю, как работать с результатом запроса, поэтому так 
-            int[] Count = new int[3];
-            foreach (var item in db.Books)
-            {
-                if (item.Genre == "Фэнтези") Count[0]++;
-                else if (item.Genre == "Учебник") Count[1]++;
-                else if (item.Genre == "Философский роман") Count[2]++;
-            }
-            return View(Count);
+            var result = db.Books.Select(x => new Statistic() { Genre = x.Genre, Count = db.Books.Count(y => y.Genre.Equals(x.Genre)).ToString() }).GroupBy(p => p.Genre).ToList();
+            return View(result);
         }
-  
+
+        public ActionResult AddBook()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddBook(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                var fileName = db.Books.OrderByDescending(x => x.Id).FirstOrDefault().Id + 1;
+                book.ImagePath = "/Content/img/" + fileName + ".jpg";
+                db.Books.Add(book);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(book);
+        }
+
+        [HttpPost]
+        public JsonResult Upload()
+        {
+            var newId = db.Books.OrderByDescending(x => x.Id).FirstOrDefault().Id + 1;
+            string path = "";
+            foreach (string file in Request.Files)
+            {
+                var upload = Request.Files[file];
+                if (upload != null)
+                {
+                    path = "/Content/img/" + newId + ".jpg";
+                    upload.SaveAs(Server.MapPath(path));
+                }
+            }
+            return Json(path);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            db.Books.Remove(db.Books.Find(id));
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

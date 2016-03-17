@@ -1,0 +1,83 @@
+﻿@model Library.Models.Book
+
+<title>AddBook</title>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            <h4>Добавление книги</h4>
+            <hr/>
+            @Html.ValidationSummary(false)
+
+            <div>
+                Название книги:
+                <div>
+                    @Html.EditorFor(model => model.Title)
+                </div>
+            </div>
+
+            <div>
+                Автор:
+                <div>
+                    @Html.EditorFor(model => model.Author)
+                </div>
+            </div>
+
+            <div>
+                Жанр:
+                <div>
+                    @Html.EditorFor(model => model.Genre)
+                </div>
+            </div>
+
+            <div id="loadImage">
+                Загрузить изображение:
+                <div>
+                    <input type="file" name="upload" id="uploadFile"/><br/>
+                    <button type="button" id="load" onclick="AddPhoto();">Загрузить изображение</button>
+                    <br/><br/>
+                </div>
+            </div>
+
+                <div>
+                    <div>
+                        <input type="submit" value="Добавить книгу" />
+                    </div>
+                </div>
+            </div>
+    }
+</div>
+
+<script type="text/javascript">
+        function AddPhoto() {
+            var files = document.getElementById('uploadFile').files;
+            if (files.length > 0) {
+                if (window.FormData !== undefined) {
+                    var data = new FormData();
+                    for (var x = 0; x < files.length; x++) {
+                        data.append("file" + x, files[x]);
+                    }
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Upload", "Books")',
+                        contentType: false,
+                        processData: false,
+                        data: data,
+                        success: function(result) {
+                          //  alert(result);
+                            document.getElementById('loadImage').innerHTML = "<img src=" + result + " style = 'height: 300px;'>";              
+                        },
+                        error: function(xhr, status, p3) {
+                            alert(xhr.responseText);
+                        }
+                    });
+                } else {
+                    alert("Браузер не поддерживает загрузку файлов HTML5!");
+                }
+            }
+        }
+</script>
